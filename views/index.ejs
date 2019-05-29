@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hi</title>
+    <title>clanDSTne</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script defer src="/javascripts/general.js"></script>
   </head>
-  <body>
-    <a href="/anon">Anonymous login</a>
+  <body><center>
+    <a href="/anon">Anonymous login TEST TEST TEST</a>
+    <br>
+    <button class="enter">Enter</button>
+    <form id="ageForm" action="/anon" method="POST">
+      <br>
+      <br>
+      <label>Date of Birth</label>
+      <input type="date" class="cal" name="bDate">
+      <br><br><br><br>
+      <Label>I'm a...</Label>
+      <select name="profession">
+        <option value="p">Cannabis professional</option>
+        <option value="c">consumer</option>
+        <option value="a">just checking this out</option>
+      </select>
+      <br><br><br>
+      <input type="submit" value="Submit">
+      </form>
+      </center>
   </body>
 </html>
