@@ -2,14 +2,24 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const professionalsCtrl = require('../controllers/professionals');
-
+const anonCtrl = require('../controllers/anon');
 
 router.get('/', function(req, res) {
   res.render('index');
 });
 
+
+router.post('/anon/index', anonCtrl.enterView);
 /*
+router.post('/anon/index', function(req, res) {
+  res.render('anon/index');
+})
+/*
+
+
+
 router.get('/professionals', professionalsCtrl.index);
+
 
 
 
