@@ -3,7 +3,7 @@
   body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     color: white;
-    margin: 50px;
+    margin: 0px;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -44,7 +44,6 @@
 @media only screen and (min-width: 700px) {
   body {
     margin: 0;
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     color: white;
     background-color: red;

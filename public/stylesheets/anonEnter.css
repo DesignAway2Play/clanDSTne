@@ -1,0 +1,14 @@
+#ageProofer {
+    position: fixed;
+    width: 100%;
+    height: 1100%;
+    visibility: visible;
+    z-index: 100;
+    background-color: blue;
+    font-size: 30px;
+    color: white
+}
+
+#proof {
+    color: blueviolet;
+}

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hi</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <% if (anonShow.profession === "a") { %>
+<%- include('../partials/headera') %>
+    
+    <% if (anonShow.profession === "a" || "c") { %>
     <a href="/anon">Anonymous screen</a>
     <% } else if (anonShow.profession === "p") { %>
       <h1>Hi professionals</h1>
@@ -15,5 +10,6 @@
         <a href="/anon/auth/google">Login with Google</a>
       <% }; %>
     <% }; %>
-  </body>
-</html>
+
+
+<%- include('../partials/footera') %>
