@@ -12,11 +12,11 @@ router.get('/', function(req, res) {
     { scope: ['profile', 'email'] }
   ));
   
-  router.get('/anon/oauth2callback', passport.authenticate(
+  router.get('/oauth2callback', passport.authenticate(
     'google',
     {
-      successRedirect : '/index',
-      failureRedirect : '/index'
+      successRedirect : '/anon/index',
+      failureRedirect : '/anon/index'
     }
   ));
 
