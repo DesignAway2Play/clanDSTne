@@ -28,6 +28,7 @@ router.get('/', function(req, res) {
 });
 */
 
+
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }

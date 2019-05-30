@@ -5,7 +5,15 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <%= anonShow.profession %>
+    <% if (anonShow.profession === "a") { %>
     <a href="/anon">Anonymous screen</a>
+    <% } else if (anonShow.profession === "p") { %>
+      <h1>Hi professionals</h1>
+      <% if (user) { %>
+        <a href="/logout">Log Out</a>
+      <% } else { %>
+        <a href="/anon/auth/google">Login with Google</a>
+      <% }; %>
+    <% }; %>
   </body>
 </html>
