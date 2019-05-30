@@ -18,6 +18,7 @@ router.post('/anon/index', function(req, res) {
 
 
 
+
 router.get('/professionals', professionalsCtrl.index);
 
 
@@ -28,6 +29,7 @@ router.get('/', function(req, res) {
 });
 */
 
+/*
 
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -46,6 +48,6 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/professionals');
 });
-
+*/
 module.exports = router;
 
