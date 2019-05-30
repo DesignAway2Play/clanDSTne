@@ -12,3 +12,38 @@
 #proof {
     color: blueviolet;
 }
+
+
+
+nav {
+    overflow: hidden;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .navLinks a {
+    background: slateblue;
+  
+  }
+  .topnav a {
+    color: slategrey;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: red;
+
+  }
+
+  .topnav a:hover {
+    color: white
+  }
+}

@@ -1,0 +1,14 @@
+
+<h1>Post a listing</h1>
+<br>
+Show post as:
+<br>
+I'm <%= name %>. Reach out to me at <%= email %>
+<br>
+<form id="newPost" action="/lists" method="post" >
+    <label>State your Title</label>
+    <input type="text" name="title">
+    <label>State your content</label>
+    <input type="text" name="content" />
+<input id="postSub" type="submit" value="Post">
+</form>

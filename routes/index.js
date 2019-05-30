@@ -8,8 +8,32 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect : '/professionals',
+    failureRedirect : '/'
+  }
+));
+
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+router.get('/professionals', professionalsCtrl.index, professionalsCtrl.show);
+
+router.get('/new', professionalsCtrl.op);
+router.get('/lists', professionalsCtrl.show)
+
 
 router.post('/anon/index', anonCtrl.enterView);
+router.post('/lists', professionalsCtrl.aList);
+
+
+
+module.exports = router;
+
 /*
 router.post('/anon/index', function(req, res) {
   res.render('anon/index');
@@ -28,26 +52,4 @@ router.get('/', function(req, res) {
   res.redirect('/professionals');
 });
 */
-
-/*
-
-router.get('/auth/google', passport.authenticate(
-  'google',
-  { scope: ['profile', 'email'] }
-));
-
-router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect : '/professionals',
-    failureRedirect : '/professionals'
-  }
-));
-
-router.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/professionals');
-});
-*/
-module.exports = router;
 

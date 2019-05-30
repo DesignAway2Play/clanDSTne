@@ -8,8 +8,8 @@ var passport = require('passport');
 
 require('dotenv').config();
 
-var indexRouter = require('./routes/index');
 var anonRouter = require('./routes/anon');
+var indexRouter = require('./routes/index');
 var professionalsRouter = require('./routes/professionals');
 
 var app = express();
@@ -34,9 +34,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', indexRouter);
 app.use('/anon', anonRouter);
 app.use('/professionals', professionalsRouter);
+app.use('/', indexRouter);
+
 
 
 

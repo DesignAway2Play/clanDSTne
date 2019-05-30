@@ -3,10 +3,10 @@ const express = require('express');
 const professionalsCtrl = require('../controllers/professionals');
 
 // GET /students
-router.get('/professionals', professionalsCtrl.index);
-
-
-
+router.get('/new', professionalsCtrl.op);
+router.get('/lists', professionalsCtrl.show)
+router.get('/myLists', professionalsCtrl.showMine)
+router.get('/index', professionalsCtrl.index, professionalsCtrl.showMine)
 // POST /facts
 // We will already have access to the logged in student on
 // the server, therefore do not use: /students/:id/facts

@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 
 router.get('/', function(req, res) {
-    res.render('/index');
+    res.render('anon/index');
   });
   
   
@@ -11,17 +11,9 @@ router.get('/', function(req, res) {
     'google',
     { scope: ['profile', 'email'] }
   ));
-  
-  router.get('/oauth2callback', passport.authenticate(
-    'google',
-    {
-      successRedirect : '/anon/index',
-      failureRedirect : '/anon/index'
-    }
-  ));
 
   router.get('/index', function(req, res){
-    res.render('/index');
+    res.render('index');
   });
 
 

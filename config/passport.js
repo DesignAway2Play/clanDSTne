@@ -14,7 +14,7 @@ passport.use(new GoogleStrategy({
       if (professional) {
         return cb(null, professional);
       } else {
-        // we have a new student via OAuth!
+
         var newProfessional = new Professional ({
           name: profile.displayName,
           email: profile.emails[0].value,
@@ -27,6 +27,19 @@ passport.use(new GoogleStrategy({
       }
     });
   },
+  ));
+
+  passport.serializeUser(function(professional, done) {
+    done(null, professional.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    Professional.findById(id, function(err, professional) {
+      done(err, professional);
+    });
+});
+
+
   /*
   function(accessToken, refreshToken, profile, cb) {
     Grower.findOne({ 'googleId': profile.id }, function(err, grower) {
@@ -48,7 +61,7 @@ passport.use(new GoogleStrategy({
     });
   }
   */
-  ));
+ 
 /*
   passport.serializeUser(function(grower, done) {
     done(null, grower.id);
