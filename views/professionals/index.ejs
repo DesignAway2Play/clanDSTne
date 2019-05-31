@@ -27,7 +27,8 @@
           <% listings.forEach( function(list, i){ %>
             -------------------------
             <form id="myPost" action="/<%= list._id %>?_method=DELETE" method="POST">
-              <p><%= list.title%></p>
+              <p>Title: <%= list.title%></p>
+              <p>Category: <%= list.category %></p>
               <p><%= list.content%></p>
               <p>this is the listings id <%= list._id %></p>
               <br>
@@ -45,7 +46,7 @@
       <% } %>
 
 
-    ferjofeoij
+
   </body>
 </html>
 

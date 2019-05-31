@@ -4,6 +4,8 @@ const Anonymous = require('../models/anonymous')
 module.exports = {
     enterView,
     show,
+    showP,
+    showN,
     anonComm
 
   };
@@ -21,7 +23,35 @@ function show ( req, res ) {
   Professional.find({}, function ( err, listsM) {
     res.render( 'lists/index', {
       people: listsM,
-      allComms: comments
+      allComms: comments,
+      proComs: listsM.comments
+
+    });
+  });
+});
+};
+
+function showP ( req, res ) {
+  Anonymous.find({}, function ( err, comments) {
+  Professional.find({}, function ( err, listsM) {
+    res.render( 'anon/party', {
+      people: listsM,
+      allComms: comments,
+      proComs: listsM.comments
+
+    });
+  });
+});
+};
+
+function showN ( req, res ) {
+  Anonymous.find({}, function ( err, comments) {
+  Professional.find({}, function ( err, listsM) {
+    res.render( 'anon/news', {
+      people: listsM,
+      allComms: comments,
+      proComs: listsM.comments
+
     });
   });
 });

@@ -6,13 +6,12 @@
     z-index: 100;
     background-color: blue;
     font-size: 30px;
-    color: white
+    color: white;
 }
 
 #proof {
     color: blueviolet;
 }
-
 
 
 nav {
@@ -37,13 +36,12 @@ nav {
   .hamburger {
     display: block;
     position: absolute;
-    right: 0;
-    top: 0;
-    color: red;
+    right: 10;
+    top: 10;
+    color: white;
 
   }
 
   .topnav a:hover {
     color: white
   }
-}

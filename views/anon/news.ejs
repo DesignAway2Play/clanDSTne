@@ -1,9 +1,7 @@
-<!-- <%- include('../partials/headera') %> -->
-
 <% people.forEach( function( attribute ){ %>
   <% var listings = attribute.list %>
   <% listings.forEach(function (list){ %>
-      <p><%if (list.category !== "Professional") { %></p>
+      <p><%if (list.category === "News") { %></p>
     <p>Title: <%= list.title %></p>
     <p><%= list.content %></p>
     <p>Created at <%= list.createdAt %></p>
@@ -37,6 +35,3 @@
   <% } %>
     <%  }) %>
   <% }); %>
-  <!-- <%- include('../partials/footera') %> -->
-
-  

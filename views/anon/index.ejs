@@ -1,7 +1,7 @@
 <%- include('../partials/headera') %>
-    
+    <center>
     <% if (anonShow.profession === "a" || anonShow.profession === "c") { %>
-    <a href="/anon">Test for anon and consumer</a>
+   <h2> <a href="/lists">See what's inside</a></h2>
     <% } else if (anonShow.profession === "p") { %>
       <h1>Hi professionals</h1>
       <% if (user) { %>
@@ -10,6 +10,7 @@
         <a href="/anon/auth/google">OAUTH Login</a>
       <% }; %>
     <% }; %>
+      </center>
 
 
 <%- include('../partials/footera') %>

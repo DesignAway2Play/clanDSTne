@@ -1,14 +1,25 @@
 
+<center>
 <h1>Post a listing</h1>
 <br>
-Show post as:
-<br>
-I'm <%= name %>. Reach out to me at <%= email %>
+<h3>Post as: I'm <%= name %>.</h3>
 <br>
 <form id="newPost" action="/lists" method="post" >
     <label>State your Title</label>
     <input type="text" name="title">
+    <br>
+    <label>Post category:</label>
+    <select name="category">
+        <option value="Professional">Professional only</option>
+        <option value="Consumer">Consumers</option>
+        <option value="Party">Party/Festival</option>
+        <option value="Event">Event</option>
+        <option value="News">News</option>
+          </select>
+    <br>
     <label>State your content</label>
+    <br>
     <input type="text" name="content" />
 <input id="postSub" type="submit" value="Post">
 </form>
+</center>
