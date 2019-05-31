@@ -1,4 +1,4 @@
-
+<%- include('../partials/headera') %>
 
 <% people.forEach( function( attribute ){ %>
     <% var listings = attribute.list %>
@@ -37,3 +37,5 @@
     </form>
       <%  }) %>
     <% }); %>
+
+    <%- include('../partials/footera') %>
