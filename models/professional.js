@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var listSchema = new mongoose.Schema({
   title: String,
   content: String,
+  category: String,
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comments' }]
 }, {
   timestamps: true
@@ -14,6 +15,7 @@ var listSchema = new mongoose.Schema({
 
 var comSchema = new mongoose.Schema({
     commContent: String,
+    anonUser: String,
   }, {
     timestamps: true
   });

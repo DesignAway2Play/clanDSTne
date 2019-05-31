@@ -2,6 +2,13 @@
 
 <% listings.forEach( function( list ){ %>
     <p><%= list %></p>
+    <form id="cAnon" action="/lists" method="post" >
+      <label>Give yourself a handle</label>
+      <input type="text" name="anonUser" />
+      <label>Say what you want</label>
+      <input type="text" name="commContent" />
+  <input id="postComm" type="submit" value="Comment">
+  </form>
   <% }); %>
 
   <!-- <%- include('../partials/footera') %> -->

@@ -27,18 +27,15 @@
           <% listings.forEach( function(list, i){ %>
             -------------------------
             <form id="myPost" action="/<%= list._id %>?_method=DELETE" method="POST">
-            <p><%= list.title%></p>
-            <p><%= list.content%></p>
-            <p>this is the listings id <%= list._id %></p>
-          <br>
-            <p>Created at <%= list.createdAt %></p>
-            <input id="delSub" type="submit" value="del">
-            <br>
+              <p><%= list.title%></p>
+              <p><%= list.content%></p>
+              <p>this is the listings id <%= list._id %></p>
+              <br>
+              <p>Created at <%= list.createdAt %></p>
+              <input id="delSub" type="submit" value="del">
+              <br>
             </form>
-            <form id="myPostEdit" action="/professionals/<%= list._id %>/edit" method="POST">
-              <input id="editSub" type="submit" value="edit">
-            <!-- <a href="/professionals/list/<%= list._id %>/edit" title="Edit Listing">Edit</a> -->
-          </form>
+            <a href="/professionals/<%= list._id %>/edit">Edit</a>
           <br>
           -------------------------
             <br><br><br>

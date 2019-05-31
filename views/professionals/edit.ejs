@@ -1,8 +1,5 @@
-<form id="newPost" action="/update/<%= id %>" method="post" >
-    <input type="text" name="title" value="<%= title %>">
-    <%= title %>
-    <input type="text" name="content" value="<%= content %>" >
-    <%= content %>
-    <%= id %>
-<input id="postSub" type="submit" value="Post">
+<form id="newPost" action="/professionals/update/<%= list.id %>?_method=PUT" method="POST" >
+    <input type="text" name="title" value="<%= list.title %>">
+    <input type="text" name="content" value="<%= list.content %>" >
+    <input id="postSub" type="submit" value="Post">
 </form>

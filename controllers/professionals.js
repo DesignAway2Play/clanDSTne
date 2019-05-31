@@ -74,11 +74,11 @@ module.exports = {
   function aList(req, res, next) {
     req.user.list.push(req.body);
     req.user.save(function(err) {
-      res.redirect('professionals/lists');
+      res.redirect('professionals/index');
     });
   }
 
-  function dList(req, res, next) {
+function dList(req, res, next) {
     console.log("in the Dsssssss")
     Professional.findOne({'list._id': req.params.id}, function(err, professional) {
       professional.list.id(req.params.id).remove();
@@ -88,21 +88,27 @@ module.exports = {
      });
   }
   
-  function uList(req, res, next) {
-    Professional.findOne({'list._id': req.params.id}, function(err, professional) {
-      professional.list.id(req.params.id).update(req.body);
-      professionl.save(function(err) {
-        res.redirect('professionals/index');
-      });
-     }); 
-  }
+function uList(req, res, next) {
+  let listItem = req.user.list.id(req.params.id);
+  listItem.title = req.body.title;
+  listItem.content = req.body.content;
+  req.user.save(function(err) {
+    res.redirect('/professionals/index');
+  });
+}
 
-  function eList(req, res, next) {
-    Professional.findOne({'list._id': req.params.id}, function(err, professional) {
-        res.render('professionals/edit', {
-          title: professional.list.title,
-          content: professional.list.content,
-          id: professional.list._id
-        });
-     });
-  }
+function eList(req, res, next) {
+  console.log(req.user);
+  let list;
+  
+  req.user.list.forEach( function(listItem) {
+    if (listItem.id === req.params.id) {
+      console.log(listItem);
+      list = listItem;
+    }
+  });
+  res.render('professionals/edit', {
+    list,
+    professional: req.user
+  });
+}
