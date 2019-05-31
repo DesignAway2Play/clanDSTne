@@ -1,5 +1,5 @@
 const Professional = require('../models/professional');
-const Listing = require('../models/professional');
+const Anonymous = require('../models/anonymous')
 
 module.exports = {
     index,
@@ -53,11 +53,14 @@ module.exports = {
 
 
   function show ( req, res ) {
-    Listing.find({}, function ( err, listsM) {
+    Anonymous.find({}, function ( err, comments) {
+    Professional.find({}, function ( err, listsM) {
       res.render( 'lists/index', {
-        people: listsM
+        people: listsM,
+        allComms: comments
       });
     });
+  });
   };
   
 

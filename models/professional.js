@@ -32,4 +32,3 @@ var professionalSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Professional', professionalSchema);
-// module.exports = mongoose.model('Listing', listSchema);

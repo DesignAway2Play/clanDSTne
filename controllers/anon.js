@@ -25,11 +25,12 @@ function anonComm(req, res, next) {
   // let listId = req.params.id;
   // let cName = req.body.anonUser;
   // let commentContent = req.body.commContent;
-  Anonymous.save(function(err) {
+  comment.save(function(err) {
     if (err) return res.redirect('/lists');
     res.redirect('/lists');
   });
 }
+
 /*
 
 function index(req, res, next) {

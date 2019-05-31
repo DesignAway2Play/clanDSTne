@@ -3,13 +3,23 @@
 <% people.forEach( function( attribute ){ %>
   <% var listings = attribute.list %>
   <% listings.forEach(function (list){ %>
-    <p><%= list.title %></p>
+    <p>Title: <%= list.title %></p>
     <p><%= list.content %></p>
     <p>Created at <%= list.createdAt %></p>
-    <p>Created by <%= list.name %></p>
+    <p>Created by <%= attribute.name %></p>
+    <p><b>COMMENTS</b></p>
+    <% allComms.forEach( function( objComm ){ %>
+      <% if (objComm.listId === list.id) { %>
+     <p> <%= objComm.commContent %> 
+     <p>By <%= objComm.anonUser %></p>
+     <p>Created at <%= objComm.createdAt %></p>
+      <% } %>
+     <%  }); %>
+     <p> ----------------------------------------- %> </p>
     <form id="cAnon" action="/lists/<%= list.id %>/comments/new" method="post" >
       <label>Give yourself a handle</label>
       <input type="text" name="anonUser" />
+      <br>
       <label>Say what you want</label>
       <input type="text" name="commContent" required />
   <input id="postComm" type="submit" value="Comment">
