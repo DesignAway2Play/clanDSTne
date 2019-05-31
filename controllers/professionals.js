@@ -7,6 +7,7 @@ module.exports = {
     showMine,
     aList,
     dList,
+    eList,
     uList
 
   };
@@ -78,19 +79,30 @@ module.exports = {
   }
 
   function dList(req, res, next) {
-    req.professional.findOne({'list._id': req.params.id}, function(err, professional) {
-      req.professional.list.id(req.params.id).remove();
-      Professionl.save(function(err) {
-        res.redirect('/lists');
+    console.log("in the Dsssssss")
+    Professional.findOne({'list._id': req.params.id}, function(err, professional) {
+      professional.list.id(req.params.id).remove();
+      professional.save(function(err) {
+        res.redirect('professionals/index');
       });
      });
   }
   
   function uList(req, res, next) {
-    Professional.findOne({'lists._id': req.params.id}, function(err, professional) {
-      Professional.list.id(req.params.id).remove();
-      Professionl.save(function(err) {
-        res.redirect('/lists');
+    Professional.findOne({'list._id': req.params.id}, function(err, professional) {
+      professional.list.id(req.params.id).update(req.body);
+      professionl.save(function(err) {
+        res.redirect('professionals/index');
       });
+     }); 
+  }
+
+  function eList(req, res, next) {
+    Professional.findOne({'list._id': req.params.id}, function(err, professional) {
+        res.render('professionals/edit', {
+          title: professional.list.title,
+          content: professional.list.content,
+          id: professional.list._id
+        });
      });
   }

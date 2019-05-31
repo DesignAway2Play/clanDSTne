@@ -10,7 +10,7 @@
     <br>
 <a href="/professionals/lists">See all listings</a>
 <br>
-<a href="/professionals/myLists">See my listings</a>
+
     <p> <ul class="right">
       <li>
       <% if (professional) { %>
@@ -22,16 +22,22 @@
     </ul></p>
     <% if (professional) { %>
       <div class="myLists">
-        My Listings
-          <% listings.forEach( function( list ){ %>
+        <h2>My Listings</h2>
+
+          <% listings.forEach( function(list, i){ %>
             -------------------------
-            <form action="/professionals/index" method="delete"></form>
+            <form id="myPost" action="/<%= list._id %>?_method=DELETE" method="POST">
             <p><%= list.title%></p>
             <p><%= list.content%></p>
+            <p>this is the listings id <%= list._id %></p>
           <br>
-            <p>Created at <%= list.createdAt%></p>
+            <p>Created at <%= list.createdAt %></p>
             <input id="delSub" type="submit" value="del">
-            <input id="delSub" type="submit" value="edit">
+            <br>
+            </form>
+            <form id="myPostEdit" action="/professionals/<%= list._id %>/edit" method="POST">
+              <input id="editSub" type="submit" value="edit">
+            <!-- <a href="/professionals/list/<%= list._id %>/edit" title="Edit Listing">Edit</a> -->
           </form>
           <br>
           -------------------------

@@ -30,6 +30,8 @@ router.get('/lists', professionalsCtrl.show)
 router.post('/anon/index', anonCtrl.enterView);
 router.post('/lists', professionalsCtrl.aList);
 
+router.delete('/:id', professionalsCtrl.dList)
+
 
 
 module.exports = router;
