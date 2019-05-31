@@ -15,7 +15,7 @@ var listSchema = new mongoose.Schema({
 
 var comSchema = new mongoose.Schema({
     commContent: String,
-    anonUser: String,
+    listId: String,
   }, {
     timestamps: true
   });
@@ -32,3 +32,4 @@ var professionalSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Professional', professionalSchema);
+// module.exports = mongoose.model('Listing', listSchema);

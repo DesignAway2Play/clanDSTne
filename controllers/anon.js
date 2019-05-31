@@ -1,16 +1,34 @@
 const Professional = require('../models/professional');
-
+const Anonymous = require('../models/anonymous')
 
 module.exports = {
     enterView,
+    anonComm
 
   };
-
+  
+  
 function enterView(req, res, next) {
     var anonShow = req.body
     res.render('anon/index', {
         anonShow, user: Professional.googleId
     });
+}
+
+
+
+function anonComm(req, res, next) {
+  let commentObj = {"anonUser": req.body.anonUser,
+    "commContent": req.body.commContent, 
+    "listId": req.params.id };
+  var comment = new Anonymous(commentObj);
+  // let listId = req.params.id;
+  // let cName = req.body.anonUser;
+  // let commentContent = req.body.commContent;
+  Anonymous.save(function(err) {
+    if (err) return res.redirect('/lists');
+    res.redirect('/lists');
+  });
 }
 /*
 

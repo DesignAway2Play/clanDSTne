@@ -1,4 +1,5 @@
 const Professional = require('../models/professional');
+const Listing = require('../models/professional');
 
 module.exports = {
     index,
@@ -51,15 +52,14 @@ module.exports = {
   }
 
 
-  //index usually is the main one.
   function show ( req, res ) {
-    Professional.find({}, function ( err, listsM) {
+    Listing.find({}, function ( err, listsM) {
       res.render( 'lists/index', {
-        title: 'A list of listing',
-        listings: listsM
+        people: listsM
       });
     });
   };
+  
 
   function showMine ( req, res ) {
 

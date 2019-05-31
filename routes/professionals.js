@@ -5,7 +5,6 @@ const professionalsCtrl = require('../controllers/professionals');
 // GET /students
 router.get('/new', professionalsCtrl.op);
 router.get('/lists', professionalsCtrl.show)
-router.get('/myLists', professionalsCtrl.showMine)
 router.get('/index', professionalsCtrl.index, professionalsCtrl.showMine)
 router.get('/:id/edit', professionalsCtrl.eList)
 

@@ -21,7 +21,7 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-router.get('/professionals', professionalsCtrl.index, professionalsCtrl.show);
+router.get('/professionals', professionalsCtrl.index);
 
 router.get('/new', professionalsCtrl.op);
 router.get('/lists', professionalsCtrl.show)
@@ -29,7 +29,7 @@ router.get('/lists', professionalsCtrl.show)
 
 router.post('/anon/index', anonCtrl.enterView);
 router.post('/lists', professionalsCtrl.aList);
-
+router.post('/lists/:id/comments/new', anonCtrl.anonComm);
 router.delete('/:id', professionalsCtrl.dList)
 
 
