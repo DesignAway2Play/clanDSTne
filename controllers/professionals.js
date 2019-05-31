@@ -1,5 +1,7 @@
 const Professional = require('../models/professional');
 const Anonymous = require('../models/anonymous')
+// const CommentPro = require('../models/professional');
+
 
 module.exports = {
     index,
@@ -9,7 +11,8 @@ module.exports = {
     aList,
     dList,
     eList,
-    uList
+    uList,
+    profComm
 
   };
 
@@ -55,8 +58,9 @@ module.exports = {
   function show ( req, res ) {
     Anonymous.find({}, function ( err, comments) {
     Professional.find({}, function ( err, listsM) {
-      res.render( 'lists/index', {
+      res.render( 'professionals/lists', {
         people: listsM,
+        proComs: listsM.comments,
         allComms: comments
       });
     });
@@ -115,3 +119,23 @@ function eList(req, res, next) {
     professional: req.user
   });
 }
+
+function profComm(req, res, next) {
+  let commentObj = {"op": req.body.op,
+    "commContent": req.body.commContent, 
+    "listId": req.params.id };
+  //   console.log(commentObj)
+  // var comment = new CommentPro(commentObj);
+    // console.log(Professional.comments);
+  // let listId = req.params.id;
+  // let op = req.body.op;
+  // let commContent = req.body.commContent;
+  Professional.findOne({'_id': req.body.userId}, function(err, professional){
+    professional.comments.push(commentObj);
+    professional.save(function(err) {
+      if (err) return res.redirect('/lists');
+      res.redirect('/professionals/lists');
+  });
+});
+}
+

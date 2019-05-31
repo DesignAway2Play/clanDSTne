@@ -8,6 +8,7 @@ router.get('/lists', professionalsCtrl.show)
 router.get('/index', professionalsCtrl.index, professionalsCtrl.showMine)
 router.get('/:id/edit', professionalsCtrl.eList)
 
+router.post('/lists/:id/comments/new', professionalsCtrl.profComm);
 router.put('/update/:id', professionalsCtrl.uList)
 router.delete('/:id', professionalsCtrl.dList)
 

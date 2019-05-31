@@ -3,6 +3,7 @@ const Anonymous = require('../models/anonymous')
 
 module.exports = {
     enterView,
+    show,
     anonComm
 
   };
@@ -15,6 +16,16 @@ function enterView(req, res, next) {
     });
 }
 
+function show ( req, res ) {
+  Anonymous.find({}, function ( err, comments) {
+  Professional.find({}, function ( err, listsM) {
+    res.render( 'lists/index', {
+      people: listsM,
+      allComms: comments
+    });
+  });
+});
+};
 
 
 function anonComm(req, res, next) {
@@ -22,9 +33,6 @@ function anonComm(req, res, next) {
     "commContent": req.body.commContent, 
     "listId": req.params.id };
   var comment = new Anonymous(commentObj);
-  // let listId = req.params.id;
-  // let cName = req.body.anonUser;
-  // let commentContent = req.body.commContent;
   comment.save(function(err) {
     if (err) return res.redirect('/lists');
     res.redirect('/lists');

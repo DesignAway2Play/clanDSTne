@@ -24,7 +24,7 @@ router.get('/logout', function(req, res){
 router.get('/professionals', professionalsCtrl.index);
 
 router.get('/new', professionalsCtrl.op);
-router.get('/lists', professionalsCtrl.show)
+router.get('/lists', anonCtrl.show)
 
 
 router.post('/anon/index', anonCtrl.enterView);

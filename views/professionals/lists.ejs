@@ -1,4 +1,37 @@
 
-<% listings.forEach( function( list ){ %>
-    <p><%= list %></p>
-  <% }); %>
+
+<% people.forEach( function( attribute ){ %>
+    <% var listings = attribute.list %>
+    <% listings.forEach(function (list){ %>
+      <p>Title: <%= list.title %></p>
+      <p><%= list.content %></p>
+      <p>Created at <%= list.createdAt %></p>
+      <p>Created by <%= attribute.name %></p>
+      <p><b>Professional Comments</b></p>
+      <% var proComms = attribute.comments %>
+      <% proComms.forEach( function( pComm ){ %>
+        <% if (pComm.listId === list.id) { %>
+            <p> <%= pComm.commContent %> 
+            <p>By <%= pComm.op %></p>
+            <p>Created at <%= pComm.createdAt %></p>
+            <% } %>
+            <%  }); %>
+      <p><b>Consumer Comments</b></p>
+      <% allComms.forEach( function( objComm ){ %>
+        <% if (objComm.listId === list.id) { %>
+       <p> <%= objComm.commContent %> 
+       <p>By <%= objComm.anonUser %></p>
+       <p>Created at <%= objComm.createdAt %></p>
+        <% } %>
+       <%  }); %>
+       <p> ----------------------------------------- %> </p>
+      <form id="profComment" action="/professionals/lists/<%= list.id %>/comments/new" method="post" >
+        <p>Posting as: <input readonly type="text" name="op" value="<%= attribute.name %>" /></p>
+        <label>Give em what they want to hear!</label>
+        <input type="text" name="commContent" required />
+        <input type = "hidden" name = "userId" value = "<%= attribute._id %>" />
+
+    <input id="postComm" type="submit" value="Comment">
+    </form>
+      <%  }) %>
+    <% }); %>

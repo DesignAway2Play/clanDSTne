@@ -16,6 +16,7 @@ var listSchema = new mongoose.Schema({
 var comSchema = new mongoose.Schema({
     commContent: String,
     listId: String,
+    op: String,
   }, {
     timestamps: true
   });
@@ -25,10 +26,11 @@ var professionalSchema = new mongoose.Schema({
   email: String,
   profession: String,
   list: [listSchema],
-  c: [comSchema],
+  comments: [comSchema],
   googleId: String,
 }, {
   timestamps: true
 });
 
 module.exports = mongoose.model('Professional', professionalSchema);
+// module.exports = mongoose.model('CommentPro', comSchema);
